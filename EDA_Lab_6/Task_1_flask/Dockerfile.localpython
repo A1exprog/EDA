@@ -1,0 +1,6 @@
+FROM scratch
+
+ADD python /python
+ENV PATH="/python:$PATH"
+
+WORKDIR /app

@@ -1,0 +1,12 @@
+numpy==1.26.4
+pandas
+scikit-learn
+shap
+joblib
+
+flask==2.2.5
+jinja2==3.0.3
+dash==2.6.2
+explainerdashboard
+
+waitress

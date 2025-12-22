@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  mlmodel:
+    build: ./model
+    container_name: mlmodel
+    expose:
+      - "5000"
+    networks:
+      - app_net
+
+  dashboard:
+    build: ./dashboard
+    container_name: dashboard
+    expose:
+      - "9050"
+    networks:
+      - app_net
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - mlmodel
+      - dashboard
+    networks:
+      - app_net
+
+networks:
+  app_net:
+    driver: bridge
